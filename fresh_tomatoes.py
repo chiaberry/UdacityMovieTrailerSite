@@ -6,8 +6,8 @@ import re
 Fresh Tomatoes module provided by Udacity
 Nanodegree program
 
-I edited it to show the film's summary when the user
-hovers over the film's poster. 
+I edited it to show the film's summary when the
+user hovers over the film's poster.
 
 '''
 
@@ -21,7 +21,7 @@ main_page_head = '''
     <title>Fresh Tomatoes!</title>
 
     <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">   # noqa
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -121,8 +121,8 @@ main_page_content = '''
     <div class="modal" id="trailer">
       <div class="modal-dialog">
         <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true"> 
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/> # noqa
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
@@ -150,7 +150,9 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+    data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal"
+    data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{movie_title}</h2>
     <span class="summary">{movie_summary}</span>
@@ -175,7 +177,7 @@ def create_movie_tiles_content(movies):
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            movie_summary = movie.movie_description
+            movie_summary=movie.movie_description
         )
     return content
 
@@ -195,3 +197,4 @@ def open_movies_page(movies):
     # open the output file in the browser (in a new tab, if possible)
     url = os.path.abspath(output_file.name)
     webbrowser.open('file://' + url, new=2)
+    
